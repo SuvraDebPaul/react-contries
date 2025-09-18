@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Country = ({ country, handleVisitedCountry }) => {
+const Country = ({ country, handleVisitedCountry, handelVisitedFlag }) => {
   const [visited, setVisited] = useState(false);
   const handelVisited = () => {
     if (!visited) {
@@ -37,6 +37,14 @@ const Country = ({ country, handleVisitedCountry }) => {
         <div className="card-actions justify-start">
           <button onClick={handelVisited} className="btn btn-primary">
             {visited ? "Visited" : "Not Visited"}
+          </button>
+          <button
+            onClick={() => {
+              handelVisitedFlag(country.flags.flags.png);
+            }}
+            className="btn btn-secondary"
+          >
+            Add Visited Flag
           </button>
         </div>
       </div>
